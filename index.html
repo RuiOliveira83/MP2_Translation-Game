@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Translation Game</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
+
 <body>
     <header>
         <a href="index.html">
@@ -27,13 +31,63 @@
 
 
     <div class="hero-image">
-       <div class="hero-text">
-         <h1>Text</h1>
-         <p>More text</p>
-         <button>Button</button>
-       </div>
+        <div class="hero-text">
+            <h1>Game Mode</h1>
+            <h4>Select language</h4>
+
+            <!-- <div class="container border"> -->
+            <div class="container-fluid p-3 my-3 border rounded">
+
+                <div class="row">
+                    <div class="col-3 tp-3">
+                       <h3>Easy</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="col-4 col-sm-2 m-2">
+                        <button type="button" class="btn menu-button"
+                            onclick="window.location.href='game.html?mode=Portuguese';"><img
+                                src="assets/images/portugal.png" alt="Portugal"> <br> Portuguese</button>
+                    </div>
+                    <div class="col-4 col-sm-2 m-2">
+                        <button type="button" class="btn menu-button"
+                            onclick="window.location.href='game.html?mode=Swedish';"><img src="assets/images/sweden.png"
+                                alt="Sweden"> <br> Swedish</button>
+                    </div>
+                    <div class="col-4 col-sm-2 m-2">
+                        <button type="button" class="btn menu-button"
+                            onclick="window.location.href='game.html?mode=French';"><img src="assets/images/france.png"
+                                alt="France"> <br>French</button>
+                    </div>
+                    <div class="col-4 col-sm-2 m-2">
+                        <button type="button" class="btn menu-button"
+                            onclick="window.location.href='game.html?mode=German';"><img src="assets/images/germany.png"
+                                alt="Germany"><br>German</button>
+                    </div>
+                </div>
+
+            </div>
+               <div class="container-fluid p-3 my-3 border rounded">
+
+                <div class="row">
+                    <div class="col-3 tp-3">
+                        <h3>Hard</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-around">
+                    <div class="col-4 col-sm-2 m-2">
+                        <button type="button" class="btn menu-button"
+                            onclick="window.location.href='game.html?mode=Random';"><img
+                                src="assets/images/globe.png" alt="world"> <br> Random</button>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    
+
 </body>
+
 </html>
