@@ -121,3 +121,66 @@ header{
   color: white;
 }
 
+.game-area {
+  background-color: rgb(255,250,240, 0.1);
+  text-align: center;
+  position: relative;
+  width: 60%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: 255,250,240;
+  padding: 2%;
+  border-radius: .5rem;
+}
+
+.score-area {
+    margin: 5px auto;
+    width: 60%;
+    font-size: 1.2rem;
+    color: rgb(255,250,240);
+    -moz-box-align: start;
+    left: 5px;
+}
+
+.score-area p{
+    text-align: start;
+  }
+
+#word {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 5px 5px;
+  color: black;
+  background-color: rgb(255,250,240, 0.6);
+  text-align: center;
+  border-radius: .25rem;
+}
+
+.btn-game{
+    margin:3px;
+}
+
+#language{
+  border: none;
+  outline: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 5px;
+  color: black;
+  background-color: rgb(255,250,240, 0.6);
+  text-align: center;
+  border-radius: .25rem;
+  width: fit-content;
+}
+
+.container-fluid {
+   padding: 0;
+}
+
+.btn-game {
+    margin: 3px;
+    border-radius: 3px;
+    padding: 3px;
+}
