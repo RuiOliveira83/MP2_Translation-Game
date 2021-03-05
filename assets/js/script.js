@@ -15,7 +15,7 @@ let mode = '';      //used for game mode settings
 let language = 0;
 
 $('document').ready(function () {
-    // grab the query parameter from the url and pass it to game setup
+    // grab the query parameter from the url and pass it to mode
     mode = new URLSearchParams(window.location.search).get('mode');
    
     buildLayout(mode);
@@ -33,13 +33,54 @@ function buildLayout(mode) {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/germany.png" alt="Germany"> <br> German</p>`;
     } else if (mode === "Random") {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>`;
-    } else {
-        alert(`Unknown game type ${mode}`);
-        throw `Unknown game type ${mode}, aborting!`;
-    }
+    } 
+    myFunction()
 }
 
-function runGame() {}
+
+
+let num1 = Math.floor(Math.random() * 493);
+let num2 = Math.floor(Math.random() * 493);
+let num3 = Math.floor(Math.random() * 493);
+let num4 = Math.floor(Math.random() * 493);
+let numOptions = [num1, num2, num3, num4];
+let numr = numOptions[Math.floor(Math.random() * 4)]
+
+
+
+// --------------------Select english word
+function fetchWord() {
+    
+
+    return fetch('assets/word_list.txt')
+            .then(response =>
+                response.text().then(text => text.split("\n")));
+}
+
+fetchWord().then(arr => document.getElementById("word").innerHTML = arr[numr]);
+
+function myFunction() {
+
+
+fetch('assets/word_list_pt.txt')
+  .then(response => response.text().then(text => text.split("\n")))
+  .then(data => {
+      word1Pt = data[num1];
+      word2Pt = data[num2];
+      word3Pt = data[num3];
+      word4Pt = data[num4];
+   
+            runGame()
+  });
+}
+
+
+function runGame() {
+      document.getElementById("option1").innerHTML = word1Pt;
+      document.getElementById("option2").innerHTML = word2Pt;
+      document.getElementById("option3").innerHTML = word3Pt;
+      document.getElementById("option4").innerHTML = word4Pt;
+}
 
 function displayQuestion() {}
 
