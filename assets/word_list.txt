@@ -217,7 +217,6 @@ learn
 leave
 left
 less
-less
 let
 letter
 life
@@ -252,7 +251,6 @@ miss
 money
 month
 moon
-more
 more
 morning
 most
@@ -470,7 +468,6 @@ wheel
 where
 which
 white
-who
 why
 will
 wind

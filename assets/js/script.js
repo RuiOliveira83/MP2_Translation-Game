@@ -6,18 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (let button of buttons) {
         button.addEventListener("click", function () {
-            });
+        });
     }
 });
 
-
 let mode = '';      //used for game mode settings
-let language = 0;
+// let language;
 
 $('document').ready(function () {
     // grab the query parameter from the url and pass it to mode
     mode = new URLSearchParams(window.location.search).get('mode');
-   
+
     buildLayout(mode);
 });
 
@@ -33,59 +32,74 @@ function buildLayout(mode) {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/germany.png" alt="Germany"> <br> German</p>`;
     } else if (mode === "Random") {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>`;
-    } 
+    }
     myFunction()
 }
 
 
-
-let num1 = Math.floor(Math.random() * 493);
-let num2 = Math.floor(Math.random() * 493);
-let num3 = Math.floor(Math.random() * 493);
-let num4 = Math.floor(Math.random() * 493);
+let num1 = Math.floor(Math.random() * 490);
+let num2 = Math.floor(Math.random() * 490);
+let num3 = Math.floor(Math.random() * 490);
+let num4 = Math.floor(Math.random() * 490);
 let numOptions = [num1, num2, num3, num4];
-let numr = numOptions[Math.floor(Math.random() * 4)]
+let numr = numOptions[Math.floor(Math.random() * 4)];
+let numr2 = Math.floor(Math.random() * 4);
 
 
 
 // --------------------Select english word
 function fetchWord() {
-    
 
     return fetch('assets/word_list.txt')
-            .then(response =>
-                response.text().then(text => text.split("\n")));
+        .then(response =>
+            response.text().then(text => text.split("\n")));
 }
 
 fetchWord().then(arr => document.getElementById("word").innerHTML = arr[numr]);
 
 function myFunction() {
 
+    let urlList = ['assets/word_list_pt.txt', 'assets/word_list_se.txt', 'assets/word_list_fr.txt', 'assets/word_list_de.txt'];
+    let url = 0;
 
-fetch('assets/word_list_pt.txt')
-  .then(response => response.text().then(text => text.split("\n")))
-  .then(data => {
-      word1Pt = data[num1];
-      word2Pt = data[num2];
-      word3Pt = data[num3];
-      word4Pt = data[num4];
-   
+    if (mode === "Portuguese") {
+
+        url = urlList[0];
+    } else if (mode === "Swedish") {
+        url = urlList[1];
+    } else if (mode === "French") {
+        url = urlList[2];
+    } else if (mode === "German") {
+        url = urlList[3];
+    } else if (mode === "Random") {
+        url = urlList[numr2];
+    }
+
+
+    fetch(url)
+        .then(response => response.text().then(text => text.split("\n")))
+        .then(data => {
+            word1Pt = data[num1];
+            word2Pt = data[num2];
+            word3Pt = data[num3];
+            word4Pt = data[num4];
+
             runGame()
-  });
+        });
 }
 
 
 function runGame() {
-      document.getElementById("option1").innerHTML = word1Pt;
-      document.getElementById("option2").innerHTML = word2Pt;
-      document.getElementById("option3").innerHTML = word3Pt;
-      document.getElementById("option4").innerHTML = word4Pt;
+    document.getElementById("option1").innerHTML = word1Pt;
+    document.getElementById("option2").innerHTML = word2Pt;
+    document.getElementById("option3").innerHTML = word3Pt;
+    document.getElementById("option4").innerHTML = word4Pt;
 }
 
-function displayQuestion() {}
+function displayQuestion() { }
 
-function calculateCorrectAnswer() {}
+function calculateCorrectAnswer() { }
 
-function incrementScore() {}
+function incrementScore() { }
 
-function topScore() {}
+function topScore() { }

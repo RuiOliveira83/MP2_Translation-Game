@@ -217,7 +217,6 @@ aprender
 sair
 deixou
 menos
-menos
 deixei
 carta
 vida
@@ -252,7 +251,6 @@ senhorita
 dinheiro
 mês
 lua
-mais
 mais
 manhã
 maioria
@@ -470,7 +468,6 @@ roda
 onde
 que
 branco
-quem
 porque
 vontade
 vento
