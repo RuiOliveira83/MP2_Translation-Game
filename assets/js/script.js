@@ -2,23 +2,11 @@
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function () {
-    let buttons = document.getElementsByTagName("button");
-
-    for (let button of buttons) {
-        button.addEventListener("click", function () {
-        });
-    }
-});
-
-let mode = '';      //used for game mode settings
-// let language;
-
-$('document').ready(function () {
-    // grab the query parameter from the url and pass it to mode
     mode = new URLSearchParams(window.location.search).get('mode');
 
     buildLayout(mode);
 });
+
 
 function buildLayout(mode) {
 
@@ -33,37 +21,44 @@ function buildLayout(mode) {
     } else if (mode === "Random") {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>`;
     }
-    myFunction()
+
+    fetchWords();
 }
 
+// --------------------Select words from lists
 
-let num1 = Math.floor(Math.random() * 490);
-let num2 = Math.floor(Math.random() * 490);
-let num3 = Math.floor(Math.random() * 490);
-let num4 = Math.floor(Math.random() * 490);
-let numOptions = [num1, num2, num3, num4];
-let numr = numOptions[Math.floor(Math.random() * 4)];
-let numr2 = Math.floor(Math.random() * 4);
+function fetchWords() {
+    num1 = Math.floor(Math.random() * 490);
+    num2 = Math.floor(Math.random() * 490);
+    num3 = Math.floor(Math.random() * 490);
+    num4 = Math.floor(Math.random() * 490);
+    numOptions = [num1, num2, num3, num4];
+    numr = numOptions[Math.floor(Math.random() * 4)];
+    numr2 = Math.floor(Math.random() * 4);
 
+    fetchWord();
+    fetchOptions();
+}
 
+// --------------------Select English word from list
 
-// --------------------Select english word
 function fetchWord() {
 
     return fetch('assets/word_list.txt')
-        .then(response =>
-            response.text().then(text => text.split("\n")));
+        .then(response => response.text().then(text => text.split("\n")))
+        .then(arr => {
+            document.getElementById("word").innerHTML = arr[numr]
+        });
 }
 
-fetchWord().then(arr => document.getElementById("word").innerHTML = arr[numr]);
+// --------------------Select 4 different words from list in the correct language
 
-function myFunction() {
+function fetchOptions() {
 
     let urlList = ['assets/word_list_pt.txt', 'assets/word_list_se.txt', 'assets/word_list_fr.txt', 'assets/word_list_de.txt'];
     let url = 0;
 
     if (mode === "Portuguese") {
-
         url = urlList[0];
     } else if (mode === "Swedish") {
         url = urlList[1];
@@ -75,31 +70,91 @@ function myFunction() {
         url = urlList[numr2];
     }
 
-
-    fetch(url)
+    return fetch(url)
         .then(response => response.text().then(text => text.split("\n")))
         .then(data => {
-            word1Pt = data[num1];
-            word2Pt = data[num2];
-            word3Pt = data[num3];
-            word4Pt = data[num4];
+            word1 = data[num1];
+            word2 = data[num2];
+            word3 = data[num3];
+            word4 = data[num4];
 
-            runGame()
+            document.getElementById("option1").innerHTML = word1;
+            document.getElementById("option2").innerHTML = word2;
+            document.getElementById("option3").innerHTML = word3;
+            document.getElementById("option4").innerHTML = word4;
         });
 }
 
+// ----------------------Event Listener - answer given
 
-function runGame() {
-    document.getElementById("option1").innerHTML = word1Pt;
-    document.getElementById("option2").innerHTML = word2Pt;
-    document.getElementById("option3").innerHTML = word3Pt;
-    document.getElementById("option4").innerHTML = word4Pt;
+document.body.addEventListener('click', function (evt) {
+    checkAnswer(evt)
+})
+
+// ----------------------------Check answer
+
+function checkAnswer(evt) {
+
+    console.log(evt.target.innerHTML);
+    if (evt.target.id === 'option1') {
+        if (numr === num1) {
+            console.log("a");
+            correctAnswer();
+        } else {
+            console.log("b");
+            wrongAnswer();
+        };
+    }
+    else if (evt.target.id === 'option2') {
+        if (numr === num2) {
+            console.log("c");
+            correctAnswer();
+        } else {
+            console.log("d");
+            wrongAnswer();
+        };
+    }
+    else if (evt.target.id === 'option3') {
+        if (numr === num3) {
+            console.log("e");
+            correctAnswer();
+        } else {
+            console.log("f");
+            wrongAnswer();
+        };
+    }
+    else if (evt.target.id === 'option4') {
+        if (numr === num4) {
+            console.log("g");
+            correctAnswer();
+        } else {
+            console.log("h");
+            wrongAnswer();
+        };
+    }
 }
 
-function displayQuestion() { }
+// ---------------------------------Score
 
-function calculateCorrectAnswer() { }
+function correctAnswer() {
+    let oldscore = parseInt(document.getElementById("score").innerText);
+    let score = oldscore + 5;
+    console.log(oldscore);
+    console.log(score);
 
-function incrementScore() { }
+    document.getElementById("score").innerHTML = score;
+    fetchWords();
+}
 
-function topScore() { }
+function wrongAnswer() {
+    let oldscore = parseInt(document.getElementById("score").innerText);
+    score = oldscore - 2;
+    console.log(oldscore);
+    console.log(score);
+
+    document.getElementById("score").innerHTML = score;
+    console.log(num1)
+    fetchWords();
+}
+
+// function topScore() { }
