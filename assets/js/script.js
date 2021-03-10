@@ -22,6 +22,8 @@ function buildLayout(mode) {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>`;
     }
 
+
+
     fetchWords();
 }
 
@@ -87,48 +89,49 @@ function fetchOptions() {
 
 // ----------------------Event Listener - answer given
 
+ let firstClick = 0;
+
 document.body.addEventListener('click', function (evt) {
-    checkAnswer(evt)
+    checkAnswer(evt);
+   
+    firstClick = firstClick + 1;
+    if (firstClick === 1) {
+        let startTime;
+        timer();
+      
+    }; //starts timer on firstClick
+
 })
 
 // ----------------------------Check answer
 
 function checkAnswer(evt) {
 
-    console.log(evt.target.innerHTML);
     if (evt.target.id === 'option1') {
         if (numr === num1) {
-            console.log("a");
             correctAnswer();
         } else {
-            console.log("b");
             wrongAnswer();
         };
     }
     else if (evt.target.id === 'option2') {
         if (numr === num2) {
-            console.log("c");
             correctAnswer();
         } else {
-            console.log("d");
             wrongAnswer();
         };
     }
     else if (evt.target.id === 'option3') {
         if (numr === num3) {
-            console.log("e");
             correctAnswer();
         } else {
-            console.log("f");
             wrongAnswer();
         };
     }
     else if (evt.target.id === 'option4') {
         if (numr === num4) {
-            console.log("g");
             correctAnswer();
         } else {
-            console.log("h");
             wrongAnswer();
         };
     }
@@ -137,24 +140,51 @@ function checkAnswer(evt) {
 // ---------------------------------Score
 
 function correctAnswer() {
-    let oldscore = parseInt(document.getElementById("score").innerText);
-    let score = oldscore + 5;
-    console.log(oldscore);
-    console.log(score);
+    let timeLeft = parseInt(document.getElementById("time").innerText);
+    if(timeLeft>0){
+    console.log(parseInt(document.getElementById("time").innerText));
+    oldScore = parseInt(document.getElementById("score").innerText);
+    let score = oldScore + 5;
 
     document.getElementById("score").innerHTML = score;
+    topScore();
     fetchWords();
+    }
 }
 
 function wrongAnswer() {
-    let oldscore = parseInt(document.getElementById("score").innerText);
-    score = oldscore - 2;
-    console.log(oldscore);
-    console.log(score);
+
+    let timeLeft = parseInt(document.getElementById("time").innerText);
+    if(timeLeft>0){
+    oldScore = parseInt(document.getElementById("score").innerText);
+    score = oldScore - 2;
 
     document.getElementById("score").innerHTML = score;
-    console.log(num1)
     fetchWords();
+    }
 }
 
-// function topScore() { }
+function topScore() {
+    
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    let topScore = parseInt(document.getElementById("top-score").innerText);
+    if (topScore < oldScore) {
+        topScore = oldScore;
+        
+    }
+    
+    document.getElementById("top-score").innerHTML = topScore;
+}
+
+function timer() {
+    var timeleft = 30;
+    var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("time").innerHTML = "The End!";
+        } else {
+            document.getElementById("time").innerHTML = timeleft + " s";
+        }
+        timeleft -= 1;
+    }, 1000)
+}
