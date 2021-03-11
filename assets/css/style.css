@@ -126,7 +126,7 @@ header{
   text-align: center;
   position: relative;
   width: 60%;
-  top: 30%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: 255,250,240;
@@ -134,18 +134,15 @@ header{
   border-radius: .5rem;
 }
 
-.score-area {
-    margin: 5px auto;
-    width: 60%;
-    font-size: 1.2rem;
+
+
+.text-box {
     color: rgb(255,250,240);
-    -moz-box-align: start;
-    left: 5px;
-}
+    }
 
 .score-area p{
     text-align: start;
-  }
+      }
 
 #word {
   border: none;
@@ -160,6 +157,22 @@ header{
 
 .btn-game{
     margin:3px;
+    text-transform: lowercase;
+    background-color: rgb(255,250,240, 0.7);
+}
+
+.btn-options{
+    margin:30px 10px 10px 10px;
+    position: center;
+    background-color: #b05c00;
+    align-items: center;
+    padding: 5px;
+    border-radius: .25rem;
+    font-size: 120%;
+    border-width: 1px;
+    border-style: solid
+    
+
 }
 
 #language{

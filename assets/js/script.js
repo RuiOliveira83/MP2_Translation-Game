@@ -22,7 +22,7 @@ function buildLayout(mode) {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>`;
     }
 
-
+    timeLeft = 30;
 
     fetchWords();
 }
@@ -89,16 +89,16 @@ function fetchOptions() {
 
 // ----------------------Event Listener - answer given
 
- let firstClick = 0;
+let firstClick = 0;
 
 document.body.addEventListener('click', function (evt) {
     checkAnswer(evt);
-   
+
     firstClick = firstClick + 1;
     if (firstClick === 1) {
         let startTime;
         timer();
-      
+
     }; //starts timer on firstClick
 
 })
@@ -141,50 +141,59 @@ function checkAnswer(evt) {
 
 function correctAnswer() {
     let timeLeft = parseInt(document.getElementById("time").innerText);
-    if(timeLeft>0){
-    console.log(parseInt(document.getElementById("time").innerText));
-    oldScore = parseInt(document.getElementById("score").innerText);
-    let score = oldScore + 5;
+    if (timeLeft > 0) {
+        console.log(parseInt(document.getElementById("time").innerText));
+        oldScore = parseInt(document.getElementById("score").innerText);
+        let score = oldScore + 5;
 
-    document.getElementById("score").innerHTML = score;
-    topScore();
-    fetchWords();
+        document.getElementById("score").innerHTML = score;
+        topScore();
+        fetchWords();
     }
 }
 
 function wrongAnswer() {
 
     let timeLeft = parseInt(document.getElementById("time").innerText);
-    if(timeLeft>0){
-    oldScore = parseInt(document.getElementById("score").innerText);
-    score = oldScore - 2;
+    if (timeLeft > 0) {
+        oldScore = parseInt(document.getElementById("score").innerText);
+        score = oldScore - 2;
 
-    document.getElementById("score").innerHTML = score;
-    fetchWords();
+        document.getElementById("score").innerHTML = score;
+        fetchWords();
     }
 }
 
 function topScore() {
-    
+
     let oldScore = parseInt(document.getElementById("score").innerText);
     let topScore = parseInt(document.getElementById("top-score").innerText);
     if (topScore < oldScore) {
         topScore = oldScore;
-        
+
     }
-    
+
     document.getElementById("top-score").innerHTML = topScore;
 }
 
 function timer() {
-    var timeleft = 30;
+    var timeleft = 3;
     var downloadTimer = setInterval(function () {
         if (timeleft <= 0) {
             clearInterval(downloadTimer);
             document.getElementById("time").innerHTML = "The End!";
+            
         } else {
             document.getElementById("time").innerHTML = timeleft + " s";
         }
         timeleft -= 1;
     }, 1000)
 }
+
+document.getElementById("play-again").addEventListener("click", function () {
+    score = 0;
+    document.getElementById("score").innerHTML = score;
+    buildLayout(mode);
+    timer();
+
+});
