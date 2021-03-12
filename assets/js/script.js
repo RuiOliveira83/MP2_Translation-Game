@@ -22,8 +22,6 @@ function buildLayout(mode) {
         document.getElementById("language").innerHTML = `<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>`;
     }
 
-    timeLeft = 30;
-
     fetchWords();
 }
 
@@ -92,6 +90,9 @@ function fetchOptions() {
 let firstClick = 0;
 
 document.body.addEventListener('click', function (evt) {
+
+
+
     checkAnswer(evt);
 
     firstClick = firstClick + 1;
@@ -140,6 +141,7 @@ function checkAnswer(evt) {
 // ---------------------------------Score
 
 function correctAnswer() {
+
     let timeLeft = parseInt(document.getElementById("time").innerText);
     if (timeLeft > 0) {
         console.log(parseInt(document.getElementById("time").innerText));
@@ -149,20 +151,41 @@ function correctAnswer() {
         document.getElementById("score").innerHTML = score;
         topScore();
         fetchWords();
+        playCorrect();
     }
 }
+
+
+
 
 function wrongAnswer() {
 
     let timeLeft = parseInt(document.getElementById("time").innerText);
     if (timeLeft > 0) {
+
         oldScore = parseInt(document.getElementById("score").innerText);
         score = oldScore - 2;
 
         document.getElementById("score").innerHTML = score;
         fetchWords();
+        playWrong()
+
     }
+
 }
+
+function playCorrect() {
+
+    var snd = new Audio("assets/sounds/correct.wav");
+    snd.play();
+}
+
+function playWrong() {
+
+    var snd = new Audio("assets/sounds/wrong.mp3");
+    snd.play();
+}
+
 
 function topScore() {
 
@@ -177,12 +200,21 @@ function topScore() {
 }
 
 function timer() {
-    var timeleft = 3;
+    var timeleft = 30;
     var downloadTimer = setInterval(function () {
         if (timeleft <= 0) {
             clearInterval(downloadTimer);
             document.getElementById("time").innerHTML = "The End!";
-            
+            document.getElementById("go-home").innerHTML = `
+
+                        <a href="index.html">
+                            <button class="btn-options">Home</button>
+                        </a>
+                    `
+            document.getElementById("play-again").innerHTML = `
+                        <button class="btn-options" >Play Again</button> `
+
+
         } else {
             document.getElementById("time").innerHTML = timeleft + " s";
         }
@@ -195,5 +227,7 @@ document.getElementById("play-again").addEventListener("click", function () {
     document.getElementById("score").innerHTML = score;
     buildLayout(mode);
     timer();
+    document.getElementById("play-again").innerHTML = "";
+    document.getElementById("go-home").innerHTML = "";
 
 });
