@@ -89,9 +89,10 @@ function fetchOptions() {
 
 let firstClick = 0;
 
-document.body.addEventListener('click', function (evt) {
+var answers = document.getElementsByClassName("answer");
 
-
+var myFunction = function (evt) {
+// document.body.addEventListener('click', function (evt) {
 
     checkAnswer(evt);
 
@@ -102,7 +103,13 @@ document.body.addEventListener('click', function (evt) {
 
     }; //starts timer on firstClick
 
-})
+};
+
+for (var i = 0; i < answers.length; i++) {
+    answers[i].addEventListener('click', myFunction, false);
+}
+
+
 
 // ----------------------------Check answer
 
@@ -200,7 +207,7 @@ function topScore() {
 }
 
 function timer() {
-    var timeleft = 30;
+    var timeleft = 29;
     var downloadTimer = setInterval(function () {
         if (timeleft <= 0) {
             clearInterval(downloadTimer);
@@ -231,3 +238,4 @@ document.getElementById("play-again").addEventListener("click", function () {
     document.getElementById("go-home").innerHTML = "";
 
 });
+

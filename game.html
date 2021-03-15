@@ -23,7 +23,43 @@
         <nav>
             <ul id="menu">
                 <li>
-                    <a href="howto.html">How to play</a>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModalCenter">
+                        How To Play
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">How To Play</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>1. Select the game mode: on easy mode, you will play with only the chosen
+                                        language.
+                                        On the hard mode, the language will be randomly selected every time a new word
+                                        is
+                                        shown.</p>
+                                    <p>2. Choose the correct translation from the four given options.</p>
+                                    <p>3. You will have 30 seconds to play the game.</p>
+                                    <p>4. Every correct answer will get you 5 points, but a wrong answer will take you 2
+                                        points.</p>
+                                    <p>5. Try to beat your record.</p>
+                                    <p>6. Enjoy!</p>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 <li>
                     <a href="tellme.html">Tell me what you think</a>
@@ -60,18 +96,18 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row ">
                     <div class="col-sm-3 col-6">
-                        <button class="btn-game" id="option1">.</button>
+                        <button class="btn-game answer" id="option1">.</button>
                     </div>
                     <div class="col-sm-3 col-6">
-                        <button class="btn-game" id="option2">.</button>
+                        <button class="btn-game answer" id="option2">.</button>
                     </div>
                     <div class="col-sm-3 col-6">
-                        <button class="btn-game" id="option3">.</button>
+                        <button class="btn-game answer" id="option3">.</button>
                     </div>
                     <div class="col-sm-3 col-6">
-                        <button class="btn-game" id="option4">.</button>
+                        <button class="btn-game answer" id="option4">.</button>
                     </div>
                 </div>
 
@@ -86,13 +122,13 @@
                     </div>
 
                 </div> -->
-                
+
                 <div class="row justify-content-center">
-                    <div id= "go-home" class="col-auto">
-                        
+                    <div id="go-home" class="col-auto">
+
                     </div>
                     <div id="play-again" class="col-auto">
-                       
+
                     </div>
 
                 </div>
@@ -103,7 +139,9 @@
 
         </div>
     </div>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 
     <script src="./assets/js/script.js"></script>
 </body>

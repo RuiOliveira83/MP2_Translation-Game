@@ -197,3 +197,61 @@ header{
     border-radius: 3px;
     padding: 3px;
 }
+
+.btn-header{
+    color:#b05c00;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    border: none;
+}
+.btn-header:hover{
+    color:#b05c00;
+    background-color: rgb(255,250,240, 0.1);
+    /* font-family: Roboto, sans-serif;
+    font-weight: 300; */
+    }
+
+.btn-header:focus{
+    box-shadow: none;
+}
+
+/* -------------------------modal---------- */
+
+.modal-content{
+    color:rgb(255,250,240);
+    background-color: #232323;
+    font-family: Roboto, sans-serif;
+}
+
+/* .modal-title{
+    color:#b05c00;
+    background-color: #232323
+} */
+
+.modal-body{
+        
+    font-size: small;
+    font-weight: 300;
+    line-height: normal;
+    }
+
+
+
+.btn-orange{
+    color:#232323;
+    background-color: #b05c00;
+}
+
+.btn-orange:hover{
+color:rgb(255,250,240);
+}
+
+.close{
+    color: rgb(255,250,240);
+    font-weight: 300;
+}
+
+.close:hover{
+    color: rgb(255,250,240);
+}
+
