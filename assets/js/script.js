@@ -47,7 +47,7 @@ function fetchWord() {
     return fetch('assets/word_list.txt')
         .then(response => response.text().then(text => text.split("\n")))
         .then(arr => {
-            document.getElementById("word").innerHTML = arr[numr]
+            document.getElementById("word").innerHTML = arr[numr];
         });
 }
 
@@ -239,3 +239,21 @@ document.getElementById("play-again").addEventListener("click", function () {
 
 });
 
+// ------------------------Send Message
+
+function sendEmail(contactForm) {
+    emailjs.send("gmail", "temp-MSP", {
+        "from_name": contactForm.name.value,
+        // "from_email": contactForm.from_email.value,
+        "message": contactForm.message.value
+    })
+    .then(
+        function(response) {
+            console.log("SUCCESS", response);
+        },
+        function(error) {
+            console.log("FAILED", error);
+        }
+    );
+    return false;
+}

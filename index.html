@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_dqbKErOJyqKwrjuYw0VCj");
+        })();
+    </script>
+
 </head>
 
 <body>
@@ -23,8 +31,6 @@
         <nav>
             <ul id="menu">
                 <li>
-                    <!-- <a href="howto.html">How to play</a> -->
-
                     <!-- Button trigger modal -->
                     <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModalCenter">
                         How To Play
@@ -42,13 +48,15 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>1. Select the game mode: on easy mode, you will play with only the chosen language.
-                                    On the hard mode, the language will be randomly selected every time a new word is
-                                    shown.</p>
+                                    <p>1. Select the game mode: on easy mode, you will play with only the chosen
+                                        language.
+                                        On the hard mode, the language will be randomly selected every time a new word
+                                        is
+                                        shown.</p>
                                     <p>2. Choose the correct translation from the four given options.</p>
                                     <p>3. You will have 30 seconds to play the game.</p>
                                     <p>4. Every correct answer will get you 5 points, but a wrong answer will take you 2
-                                    points.</p>
+                                        points.</p>
                                     <p>5. Try to beat your record.</p>
                                     <p>6. Enjoy!</p>
 
@@ -62,7 +70,39 @@
                     </div>
                 </li>
                 <li>
-                    <a href="tellme.html">Tell me what you think</a>
+                   
+                    <!-- ------------------------------------From Bootstrap -->
+
+                    <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModal"
+                        data-whatever="@mdo">Tell me what you think</button>
+
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tell me what you think</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <form onsubmit="return sendEmail(this);">
+                                        <input type="text" name="name" class="form-control" id="from_name"
+                                            placeholder="Name" required />
+                                        <textarea rows="5" name="message" class="form-control" id="message"
+                                            placeholder="Leave your message here" required></textarea>
+                                        <button type="submit" class="btn btn-orange ">Send Message</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </nav>

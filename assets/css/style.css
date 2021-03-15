@@ -245,11 +245,13 @@ header{
     line-height: normal;
     }
 
-
+textarea.form-control {
+    margin:5px 0px;}
 
 .btn-orange{
     color:#232323;
     background-color: #b05c00;
+   
 }
 
 .btn-orange:hover{
@@ -259,6 +261,7 @@ color:rgb(255,250,240);
 .close{
     color: rgb(255,250,240);
     font-weight: 300;
+    text-shadow: none;
 }
 
 .close:hover{
