@@ -27,7 +27,7 @@ body{
     color:  #b05c00;
     margin-left: 20px;
     margin-right: 20px;
-    float: center;
+  
 }
 
 @media (min-width: 768px) {
@@ -44,16 +44,27 @@ body{
     }
 }
 
+/* ----------------------------------------------change font-weight on menu */
+
 #menu li {
   list-style-type: none;
   float: right;
   margin-right: 30px;
   font-size: 120%;
+  
 }
 
 #menu a {
     color:  #b05c00;
 }
+
+#menu li.how-to-play{
+  list-style-type: decimal;
+  float: none;
+  margin: 4px 30px;
+  font-size: 120%;
+}
+
 
 header{
     text-decoration: none;
@@ -114,7 +125,7 @@ header{
   border: none;
   outline: 0;
   display: inline-block;
-  padding: 5px 5px;
+  padding: 8px 5px;
   color: black;
   background-color: rgb(255,250,240, 0.6);
   text-align: center;
@@ -126,7 +137,7 @@ header{
 }
 
 .hero-text a:hover {
-  background-color: none;
+  /* background-color: none; */
   color: white;
   text-decoration: none;
 }
@@ -135,15 +146,31 @@ header{
   background-color: rgb(255,250,240, 0.1);
   text-align: center;
   position: relative;
-  width: 60%;
+  width: 70%;
   /* top: 40%; */
   left: 50%;
-  transform: translate(-50%, 25%);
-  color: 255,250,240;
+  transform: translate(-50%, 5%);
+  color: rgb(255,250,240);
   padding: 2%;
   border-radius: .5rem;
 }
 
+
+@media (min-width: 768px) {
+
+.game-area {
+  background-color: rgb(255,250,240, 0.1);
+  text-align: center;
+  position: relative;
+  width: 70%;
+  /* top: 40%; */
+  left: 50%;
+  transform: translate(-50%, 25%);
+  color: rgb(255,250,240);
+  padding: 2%;
+  border-radius: .5rem;
+}
+}
 
 
 .text-box {
@@ -172,8 +199,8 @@ header{
 }
 
 .btn-options{
-    margin:30px 10px 10px 10px;
-    position: center;
+    margin:20px 5px 2px 5px;
+    /* position: center; */
     background-color: #b05c00;
     align-items: center;
     padding: 5px;
@@ -181,8 +208,6 @@ header{
     font-size: 120%;
     border-width: 1px;
     border-style: solid
-    
-
 }
 
 #language{
@@ -190,7 +215,7 @@ header{
   outline: 0;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px 5px;
+  padding: 8px 5px;
   color: black;
   background-color: rgb(255,250,240, 0.6);
   text-align: center;

@@ -1,187 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>The Translation Game</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Translation Game</title>
+      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+      <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+      <script>
+         (function () {
             emailjs.init("user_dqbKErOJyqKwrjuYw0VCj");
-        })();
-    </script>
-</head>
+         })();
+      </script>
+   </head>
 
-<body>
-    <header>
-        <a href="index.html">
+   <body>
+      <header>
+         <a href="index.html">
             <h2 id="logo">The Translation Game</h2>
-        </a>
-        <nav>
+         </a>
+         <nav>
             <ul id="menu">
-                <li>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModalCenter">
-                        How To Play
-                    </button>
+               <li>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModalCenter">
+                     How To Play
+                  </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">How To Play</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>1. Select the game mode: on easy mode, you will play with only the chosen
-                                        language.
-                                        On the hard mode, the language will be randomly selected every time a new word
-                                        is shown.</p>
-                                    <p>2. Choose the correct translation from the four given options.</p>
-                                    <p>3. You will have 30 seconds to play the game.</p>
-                                    <p>4. Every correct answer will get you 5 points, but a wrong answer will take you 2
-                                        points.</p>
-                                    <p>5. Try to beat your record.</p>
-                                    <p>6. Enjoy!</p>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
-
-                                </div>
-                            </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
+                     <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLongTitle">How To Play</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                              </button>
+                           </div>
+                           <div class="modal-body">
+                              <p>1. Select the game mode: on easy mode, you will play with only the chosen language. On the hard mode, the language will be randomly selected every time a new word is shown.</p>
+                              <p>2. Choose the correct translation from the four given options.</p>
+                              <p>3. You will have 30 seconds to play the game.</p>
+                              <p>4. Every correct answer will get you 5 points, but a wrong answer will take you 2 points.</p>
+                              <p>5. Try to beat your record.</p>
+                              <p>6. Enjoy!</p>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
+                           </div>
                         </div>
-                    </div>
-                </li>
-                <li>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <!-- ............From Bootstrap -->
 
-                    <!-- ------------------------------------From Bootstrap -->
+                  <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Tell me what you think</button>
 
-                    <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModal"
-                        data-whatever="@mdo">Tell me what you think</button>
-
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Tell me what you think</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <form onsubmit="return sendEmail(this);">
-                                        <input type="text" name="name" class="form-control" id="from_name"
-                                            placeholder="Name" required />
-                                        <textarea rows="5" name="message" class="form-control" id="message"
-                                            placeholder="Leave your message here" required></textarea>
-                                        <button type="submit" class="btn btn-orange ">Send Message</button>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
-
-                                </div>
-                            </div>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Tell me what you think</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                 <span aria-hidden="true">&times;</span>
+                              </button>
+                           </div>
+                           <div class="modal-body text-center">
+                              <form onsubmit="return sendEmail(this);">
+                                 <input type="text" name="name" class="form-control" id="from_name" placeholder="Name" required />
+                                 <textarea rows="5" name="message" class="form-control" id="message" placeholder="Leave your message here" required></textarea>
+                                 <button type="submit" class="btn btn-orange">Send Message</button>
+                              </form>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
+                           </div>
                         </div>
-                    </div>
-                </li>
+                     </div>
+                  </div>
+               </li>
             </ul>
-        </nav>
-    </header>
+         </nav>
+      </header>
 
-
-
-    <div class="hero-image">
-        <div class="container no-gutters game-area">
+      <div class="hero-image">
+         <div class="container no-gutters game-area">
             <!-- <div class="score-area"> -->
             <div class="container no-gutters text-box">
-                <div class="row">
-                    <div class="col-sm">
-                        <p class="scores">Score: <span id="score"> 0</span></p>
-                        <p class="scores">Top Score: <span id="top-score"> 0</span></p>
-                    </div>
-                    <div class="col-sm">
-                        <p class="counter">Time: <span id="time">30 s</span></p>
-                    </div>
-                </div>
+               <div class="row">
+                  <div class="col-sm">
+                     <p class="scores">Score: <span id="score"> 0</span></p>
+                     <p class="scores">Top Score: <span id="top-score"> 0</span></p>
+                  </div>
+                  <div class="col-sm">
+                     <p class="counter">Time: <span id="time">30 s</span></p>
+                  </div>
+               </div>
 
-                <div class="row">
-                    <div class="col-sm">
-                        <h1 id="word">Text</h1>
-                    </div>
-                </div>
+               <div class="row">
+                  <div class="col-sm">
+                     <h1 id="word">Text</h1>
+                  </div>
+               </div>
 
-                <div class="row">
-                    <div class="col-sm">
-                        <p id="language"><img src="assets/images/portugal.png" alt="Portugal"> <br> Portuguese</p>
-                    </div>
-                </div>
+               <div class="row">
+                  <div class="col-sm">
+                     <p id="language">
+                        <img src="assets/images/portugal.png" alt="Portugal" /> <br />
+                        Portuguese
+                     </p>
+                  </div>
+               </div>
 
-                <div class="row ">
-                    <div class="col-sm-3 col-6">
-                        <button class="btn-game answer" id="option1">.</button>
-                    </div>
-                    <div class="col-sm-3 col-6">
-                        <button class="btn-game answer" id="option2">.</button>
-                    </div>
-                    <div class="col-sm-3 col-6">
-                        <button class="btn-game answer" id="option3">.</button>
-                    </div>
-                    <div class="col-sm-3 col-6">
-                        <button class="btn-game answer" id="option4">.</button>
-                    </div>
-                </div>
+               <div class="row">
+                  <div class="col-sm-3 col-6">
+                     <button class="btn-game answer" id="option1">.</button>
+                  </div>
+                  <div class="col-sm-3 col-6">
+                     <button class="btn-game answer" id="option2">.</button>
+                  </div>
+                  <div class="col-sm-3 col-6">
+                     <button class="btn-game answer" id="option3">.</button>
+                  </div>
+                  <div class="col-sm-3 col-6">
+                     <button class="btn-game answer" id="option4">.</button>
+                  </div>
+               </div>
 
-                <!-- <div class="row justify-content-center">
-                    <div class="col-auto">
-                        <a href="index.html">
-                            <button class="btn-options">Home</button>
-                        </a>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn-options" id="play-again">Play Again</button>
-                    </div>
-
-                </div> -->
-
-                <div class="row justify-content-center">
-                    <div id="go-home" class="col-auto">
-
-                    </div>
-                    <div id="play-again" class="col-auto">
-
-                    </div>
-
-                </div>
-
-
-
+               <div class="row justify-content-center">
+                  <div id="go-home" class="col-auto"></div>
+                  <div id="play-again" class="col-auto"></div>
+               </div>
             </div>
+         </div>
+      </div>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-        </div>
-    </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-
-    <script src="./assets/js/script.js"></script>
-</body>
-
+      <script src="./assets/js/script.js"></script>
+   </body>
 </html>
