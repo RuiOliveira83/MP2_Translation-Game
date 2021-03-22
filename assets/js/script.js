@@ -247,6 +247,7 @@ function sendEmail(contactForm) {
       .then(
          function(response) {
             console.log("SUCCESS", response);
+            alert("Thank you!")
          },
          function(error) {
             console.log("FAILED", error);

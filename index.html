@@ -7,9 +7,11 @@
 
       <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+     
+      <!-- Custom CSS Stylesheet -->
       <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
+      <!-- Code from emailjs -->
       <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
       <script>
          (function () {
@@ -19,6 +21,8 @@
    </head>
 
    <body>
+
+    <!-- HEADER -->
       <header>
          <a href="index.html">
             <h2 id="logo">The Translation Game</h2>
@@ -26,12 +30,12 @@
          <nav>
             <ul id="menu">
                <li>
-                  <!-- Button trigger modal -->
+                  <!-- Button trigger modal - From Bootstrap-->
                   <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModalCenter">
                      How To Play
                   </button>
 
-                  <!-- Modal -->
+                  <!-- Modal -  How to Play - Rules-->
                   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter" aria-hidden="true">
                      <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -76,8 +80,11 @@
                <li>
                   <!-- ............From Bootstrap -->
 
-                  <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Tell me what you think</button>
+                  <button type="button" class="btn btn-header" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                     Tell me what you think
+                  </button>
 
+                  <!-- Modal -  Contact Form-->
                   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                      <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -105,12 +112,13 @@
          </nav>
       </header>
 
+      <!-- MAIN BODY -->
       <div class="hero-image">
          <div class="hero-text">
             <h1>Game Mode</h1>
             <h4>Select language</h4>
 
-            <!-- <div class="container border"> -->
+            <!-- Game mode - Easy options -->
             <div class="container-fluid p-3 my-3 border rounded">
                <div class="row">
                   <div class="col-3 tp-3">
@@ -144,6 +152,7 @@
                   </div>
                </div>
             </div>
+            <!-- Game mode - Hard option -->
             <div class="container-fluid p-3 my-3 border rounded">
                <div class="row">
                   <div class="col-3 tp-3">
@@ -163,7 +172,7 @@
       </div>
 
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-      <script src="./assets/js/script.js"></script>
+      <!-- javascript file -->
+      <script src="../assets/js/script.js"></script>
    </body>
 </html>
