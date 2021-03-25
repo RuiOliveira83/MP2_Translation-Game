@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function buildLayout(mode) {
    if (mode === "Portuguese") {
-      document.getElementById("language").innerHTML = `<p><img src="assets/images/portugal.png" alt="Portugal"> <br> Portuguese</p>`;
+      document.getElementById("language").innerHTML = '<p><img src="assets/images/portugal.png" alt="Portugal"> <br> Portuguese</p>';
    } else if (mode === "Swedish") {
-      document.getElementById("language").innerHTML = `<p><img src="assets/images/sweden.png" alt="Sweden"> <br> Swedish</p>`;
+      document.getElementById("language").innerHTML = '<p><img src="assets/images/sweden.png" alt="Sweden"> <br> Swedish</p>';
    } else if (mode === "French") {
-      document.getElementById("language").innerHTML = `<p><img src="assets/images/france.png" alt="France"> <br>French</p>`;
+      document.getElementById("language").innerHTML = '<p><img src="assets/images/france.png" alt="France"> <br>French</p>';
    } else if (mode === "German") {
-      document.getElementById("language").innerHTML = `<p><img src="assets/images/germany.png" alt="Germany"> <br> German</p>`;
+      document.getElementById("language").innerHTML = '<p><img src="assets/images/germany.png" alt="Germany"> <br> German</p>';
    } else if (mode === "Random") {
-      document.getElementById("language").innerHTML = `<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>`;
+      document.getElementById("language").innerHTML = '<p><img src="assets/images/globe.png" alt="world"> <br> Random</p>';
    }
    fetchWords();
 }
@@ -235,23 +235,4 @@ function playWrong() {
 function playEnd() {
    var snd = new Audio("assets/sounds/end.wav");
    snd.play();
-}
-
-// ------------------------Send Message
-
-function sendEmail(contactForm) {
-   emailjs.send("gmail", "temp-MSP", {
-         "from_name": contactForm.name.value,
-         "message": contactForm.message.value
-      })
-      .then(
-         function(response) {
-            console.log("SUCCESS", response);
-            alert("Thank you!");
-         },
-         function(error) {
-            console.log("FAILED", error);
-         }
-      );
-   return false;
 }

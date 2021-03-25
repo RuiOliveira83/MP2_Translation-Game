@@ -219,6 +219,10 @@ textarea.form-control {
     margin:5px 0px;
 }
 
+.form-control {
+    margin:5px 0px;
+}
+
 .btn-orange{
     color:#232323;
     background-color: #b05c00;
