@@ -11,13 +11,15 @@
       <!-- Custom CSS Stylesheet -->
       <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 
-      <!-- Code from emailjs -->
+       <!-- Code from emailjs -->
       <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
       <script>
          (function () {
             emailjs.init("user_dqbKErOJyqKwrjuYw0VCj");
          })();
       </script>
+      <!-- Favicon image link -->
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">  
    </head>
 
    <body>
@@ -121,11 +123,11 @@
                <!-- Scores and Timer Area -->
                <div class="row">
                   <div class="col-sm">
-                     <p class="scores">Score: <span id="score"> 0</span></p>
-                     <p class="scores">Top Score: <span id="top-score"> 0</span></p>
+                     <p class="scores text-game-top">Score: <span id="score"> 0</span></p>
+                     <p class="scores text-game-top">Top Score: <span id="top-score"> 0</span></p>
                   </div>
                   <div class="col-sm">
-                     <p class="counter">Time: <span id="time">30 s</span></p>
+                     <p class="counter text-game-top">Time: <span id="time">30 s</span></p>
                   </div>
                </div>
                <!-- Word to be translated -->
