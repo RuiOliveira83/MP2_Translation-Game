@@ -1,9 +1,6 @@
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 
-// var mode;
-// var num1;
-
 document.addEventListener("DOMContentLoaded", function() {
    
    mode = new URLSearchParams(window.location.search).get('mode');
@@ -29,8 +26,14 @@ function buildLayout(mode) {
 
 // --------------------Select words from lists
 
-function fetchWords() {
+// The function fetchWords() will:
+// * generate 4 random numbers between 1 and 490 (num1, num2, num3 and num4);
+// * create an array with those 4 numbers (numOptions);
+// * select randomly an element of the numOptions array (numr);
+// * select a random number between 1 and 4
+// * run the functions fetchWord and fetch Options
 
+function fetchWords() {
    
    num1 = Math.floor(Math.random() * 490);
    num2 = Math.floor(Math.random() * 490);
@@ -46,6 +49,9 @@ function fetchWords() {
 
 // --------------------Select English word from list
 
+// The function fetchWord() will fetch the word in the position number numr (numr is num1 or num2 or num3 or num4) from the 
+// list called "word_list.txt" and put it inside the html on the element with the id "word". This word list was taken from the website https://summerboardingcourses.com/
+
 function fetchWord() {
 
    return fetch('assets/word_list.txt')
@@ -56,6 +62,14 @@ function fetchWord() {
 }
 
 // --------------------Select 4 different words from list in the selected language
+
+// The function fetchOptions() will:
+// * create an array (urlList) with the 4 word lists in the 4 different languages;
+// * it will detect the game mode selected and select the list acordingly; (if the game mode is "Random" it will 
+// select a list randomly using the random number "numr2");
+// * it will fetch 4 words from that list. The words will be in the position num1, num2, num3 and num4;
+// * it will insert those words inside the html on the elements with the ID "word1", "word2", "word3" and "word4".
+
 
 function fetchOptions() {
 
@@ -91,6 +105,7 @@ function fetchOptions() {
 
 // ----------------------Event Listener - answer given
 
+
 var firstClick = 0;
 
 var answers = document.getElementsByClassName("answer");
@@ -112,6 +127,12 @@ for (var i = 0; i < answers.length; i++) {
 }
 
 // ----------------------------Check answer
+
+// The function check Answer will check the answer and run the correctAnswer function if the answer is correct or run the wrongAnswer 
+//  function if the answer is not correct. To check if the answer is correct it will compare the position on the list of both fetchWords,
+//  if they are in the same position it means that the answer is correct.
+
+
 
 function checkAnswer(evt) {
 
@@ -144,6 +165,15 @@ function checkAnswer(evt) {
 
 // ---------------------------------Score
 
+// The function correctAnswer() will start by checking if the player still have time. if the time left is 0 it doesn't do anything, if the timeLeft is > 0 it will:
+// * check the game mode, if game mode is not "Random" it will add 5 to the existing score;
+// * if the game mode is "Random" it will add 10 points to the existing score.
+// * it will insert the new score on the element with the Id "score";
+// * it will run the function topScore;
+// * it will run the function playCorrect;
+// * it will run the function fetchWords() to get new words.
+
+
 function correctAnswer() {
    var timeLeft = parseInt(document.getElementById("time").innerText);
    if (timeLeft > 0) {
@@ -160,6 +190,13 @@ function correctAnswer() {
       playCorrect();
    }
 }
+
+// The function wrongAnswer() will start by checking if the player still have time. if the time left is 0 it doesn't do anything, if the timeLeft is > 0 it will:
+// * check the game mode, if game mode is not "Random" it will take 2 points from the existing score;
+// * if the game mode is "Random" it will take 5 points from the existing score.
+// * it will insert the new score on the element with the Id "score";
+// * it will run the function playWrong.
+// * it will run the function fetchWords() to get new words.
 
 function wrongAnswer() {
    var timeLeft = parseInt(document.getElementById("time").innerText);
@@ -179,6 +216,8 @@ function wrongAnswer() {
    }
 }
 
+// The function topScore will compare the values of the elements with the ID of "score" and "top-score". If score is bigger than top-score it will change the value of top-score and match it with the score value.
+
 function topScore() {
    var oldScore = parseInt(document.getElementById("score").innerText);
    var topScore = parseInt(document.getElementById("top-score").innerText);
@@ -189,6 +228,14 @@ function topScore() {
 }
 
 // ---------------------------------Timer
+
+// The function timer() calculates the value of timeleft and insert that value inside the element with the ID "time".
+// The value os timeleft is updated every second, it start with 30 (value present on the html) and decreases by 1 every second.
+// When the timeleft is 0 a message saying "The End!" appears on the element with the ID "time", and ending music is played through 
+// the function playEnd() and two buttons are shown below the words:
+// one button will direct the user to the home pageXOffset, the other button will give the user an option to play again.
+
+
 function timer() {
    var timeleft = 29;
    var downloadTimer = setInterval(function() {
@@ -210,6 +257,8 @@ function timer() {
    }, 1000);
 }
 
+// When the user clicks on the button with the ID "play-again" it will clear the score, it will run the funcion buildLayout and the funtion timer. 
+// It will also remove the "play-again" and "go-home" buttons.
 
 document.getElementById("play-again").addEventListener("click", function() {
    score = 0;
@@ -222,6 +271,8 @@ document.getElementById("play-again").addEventListener("click", function() {
 });
 
 // ---------------------------------Sound effects from https://mixkit.co/
+// The functions playCorrect(), playWrong() and playEnd() will play the sounds when activated.
+
 function playCorrect() {
    var snd = new Audio("assets/sounds/correct.wav");
    snd.play();
