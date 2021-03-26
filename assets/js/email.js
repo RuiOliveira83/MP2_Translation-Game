@@ -7,7 +7,7 @@ function sendEmail(contactForm) {
         .then(
             function (response) {
                 console.log("SUCCESS", response);
-                alert("Thank you!");
+                alert("Thank you for your message!");
 
             },
             function (error) {
