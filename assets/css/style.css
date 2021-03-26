@@ -107,6 +107,20 @@ header{
   text-decoration: none;
 }
 
+.text-game-top {
+    font-size:130%;
+}
+
+.answer{
+    font-size: 120%;
+}
+
+@media (min-width: 1200px) {
+    .answer{
+    font-size: 150%;
+}
+}
+
 .game-area {
   background-color: rgb(255,250,240, 0.1);
   text-align: center;
@@ -188,7 +202,7 @@ header{
 .btn-header{
     color:#b05c00;
     font-family: Roboto, sans-serif;
-    font-size: 110%;
+    font-size: 120%;
     font-weight: 300;
     border: none;
 }
