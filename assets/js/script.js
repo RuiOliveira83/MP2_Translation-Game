@@ -61,11 +61,11 @@ function fetchWord() {
       });
 }
 
-// --------------------Select 4 different words from list in the selected language
+// --------------------Select 4 different words from the list in the selected language
 
 // The function fetchOptions() will:
 // * create an array (urlList) with the 4 word lists in the 4 different languages;
-// * it will detect the game mode selected and select the list acordingly; (if the game mode is "Random" it will 
+// * it will detect the game mode selected and select the list accordingly; (if the game mode is "Random" it will 
 // select a list randomly using the random number "numr2");
 // * it will fetch 4 words from that list. The words will be in the position num1, num2, num3 and num4;
 // * it will insert those words inside the html on the elements with the ID "word1", "word2", "word3" and "word4".
@@ -230,7 +230,7 @@ function topScore() {
 // ---------------------------------Timer
 
 // The function timer() calculates the value of timeleft and insert that value inside the element with the ID "time".
-// The value os timeleft is updated every second, it start with 30 (value present on the html) and decreases by 1 every second.
+// The value os timeleft is updated every second, it starts with 30 (value present on the html) and decreases by 1 every second.
 // When the timeleft is 0 a message saying "The End!" appears on the element with the ID "time", and ending music is played through 
 // the function playEnd() and two buttons are shown below the words:
 // one button will direct the user to the home pageXOffset, the other button will give the user an option to play again.
@@ -257,7 +257,7 @@ function timer() {
    }, 1000);
 }
 
-// When the user clicks on the button with the ID "play-again" it will clear the score, it will run the funcion buildLayout and the funtion timer. 
+// When the user clicks on the button with the ID "play-again" it will clear the score, it will run the function buildLayout and the function timer. 
 // It will also remove the "play-again" and "go-home" buttons.
 
 document.getElementById("play-again").addEventListener("click", function() {
