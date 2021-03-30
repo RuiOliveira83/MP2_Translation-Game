@@ -1,11 +1,12 @@
 # [The Translation Game](https://ruioliveira83.github.io/MP2_Translation-Game)
 
-## UX
 The main purpose of this website is to create a didactic and funny game in a simple, easy to navigate and clean looking website.  
 This website is my second milestone project for the diploma in software development from the [code institute](https://codeinstitute.net).  
 A live view of this website can be found here: [The Translation Game](https://ruioliveira83.github.io/MP2_Translation-Game).
 
 ---
+## UX
+
 ### User Stories
 * As a regular user, I want a website responsive and good looking on all devices;
 * As a regular user, I want a website easy to navigate;
