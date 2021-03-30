@@ -1,4 +1,5 @@
 function sendEmail(contactForm) {
+    "use strict";
     emailjs.send("gmail", "temp-MSP", {
         "from_name": contactForm.name.value,
         "from_email": contactForm.emailaddress.value,
@@ -19,6 +20,5 @@ function sendEmail(contactForm) {
         //  to close the modal after the message is sent
          $('#Modal').modal('hide');
     return false;
-
 }
 

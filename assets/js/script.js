@@ -2,7 +2,7 @@
 // Get the button elements and add event listeners to them
 
 document.addEventListener("DOMContentLoaded", function() {
-   
+   "use strict";
    mode = new URLSearchParams(window.location.search).get('mode');
    buildLayout(mode);
 });
