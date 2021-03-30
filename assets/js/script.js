@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // --------------------Build Layout according with the selected mode
 
 function buildLayout(mode) {
+   "use strict";
    if (mode === "Portuguese") {
       document.getElementById("language").innerHTML = '<p><img src="assets/images/portugal.png" alt="Portugal"> <br> Portuguese</p>';
    } else if (mode === "Swedish") {
@@ -34,7 +35,7 @@ function buildLayout(mode) {
 // * run the functions fetchWord and fetch Options
 
 function fetchWords() {
-   
+   "use strict";
    num1 = Math.floor(Math.random() * 490);
    num2 = Math.floor(Math.random() * 490);
    num3 = Math.floor(Math.random() * 490);
@@ -53,7 +54,7 @@ function fetchWords() {
 // list called "word_list.txt" and put it inside the html on the element with the id "word". This word list was taken from the website https://summerboardingcourses.com/
 
 function fetchWord() {
-
+   "use strict";
    return fetch('assets/word_list.txt')
       .then(response => response.text().then(text => text.split("\n")))
       .then(arr => {
@@ -72,7 +73,7 @@ function fetchWord() {
 
 
 function fetchOptions() {
-
+   "use strict";
    var urlList = ['assets/word_list_pt.txt', 'assets/word_list_se.txt', 'assets/word_list_fr.txt', 'assets/word_list_de.txt'];
    var url = 0;
 
@@ -111,7 +112,7 @@ var firstClick = 0;
 var answers = document.getElementsByClassName("answer");
 
 var myFunction = function(evt) {
-  
+   "use strict";
    checkAnswer(evt);
 
    firstClick = firstClick + 1;
@@ -135,7 +136,7 @@ for (var i = 0; i < answers.length; i++) {
 
 
 function checkAnswer(evt) {
-
+   "use strict";
    if (evt.target.id === 'option1') {
       if (numr === num1) {
          correctAnswer();
@@ -175,6 +176,7 @@ function checkAnswer(evt) {
 
 
 function correctAnswer() {
+   "use strict";
    var timeLeft = parseInt(document.getElementById("time").innerText);
    if (timeLeft > 0) {
       oldScore = parseInt(document.getElementById("score").innerText);
@@ -199,6 +201,7 @@ function correctAnswer() {
 // * it will run the function fetchWords() to get new words.
 
 function wrongAnswer() {
+   "use strict";
    var timeLeft = parseInt(document.getElementById("time").innerText);
    if (timeLeft > 0) {
 
@@ -219,6 +222,7 @@ function wrongAnswer() {
 // The function topScore will compare the values of the elements with the ID of "score" and "top-score". If score is bigger than top-score it will change the value of top-score and match it with the score value.
 
 function topScore() {
+   "use strict";
    var oldScore = parseInt(document.getElementById("score").innerText);
    var topScore = parseInt(document.getElementById("top-score").innerText);
    if (topScore < oldScore) {
@@ -237,6 +241,7 @@ function topScore() {
 
 
 function timer() {
+   "use strict";
    var timeleft = 29;
    var downloadTimer = setInterval(function() {
       if (timeleft <= 0) {
@@ -261,6 +266,7 @@ function timer() {
 // It will also remove the "play-again" and "go-home" buttons.
 
 document.getElementById("play-again").addEventListener("click", function() {
+   "use strict";
    score = 0;
    document.getElementById("score").innerHTML = score;
    buildLayout(mode);
@@ -274,16 +280,22 @@ document.getElementById("play-again").addEventListener("click", function() {
 // The functions playCorrect(), playWrong() and playEnd() will play the sounds when activated.
 
 function playCorrect() {
+   "use strict";
    var snd = new Audio("assets/sounds/correct.wav");
    snd.play();
 }
 
 function playWrong() {
+   "use strict";
    var snd = new Audio("assets/sounds/wrong.mp3");
    snd.play();
 }
 
 function playEnd() {
+   "use strict";
    var snd = new Audio("assets/sounds/end.wav");
    snd.play();
 }
+
+
+
